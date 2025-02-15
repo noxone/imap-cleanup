@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import org.apache.commons.net.imap.IMAPClient;
 import org.apache.commons.net.imap.IMAPSClient;
+import org.olafneumann.imap.client.ImapCommands.ThrowingImapCommand;
 
 import com.google.common.io.Resources;
 
@@ -65,7 +66,7 @@ public final class ImapCleanup {
 		client.disconnect();
 	}
 
-	private static void executeCommandAndWriteResponse(final IMAPClient client, final ThrowingImapFunction action)
+	private static void executeCommandAndWriteResponse(final IMAPClient client, final ThrowingImapCommand action)
 			throws IOException {
 		action.apply(client);
 		writeResponse(client);

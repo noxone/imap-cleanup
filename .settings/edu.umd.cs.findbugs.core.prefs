@@ -1,0 +1,9 @@
+#Fri, 14 Feb 2025 16:35:23 +0100
+
+detector_threshold=3
+effort=max
+filter_settings=Low|BAD_PRACTICE,CORRECTNESS,EXPERIMENTAL,I18N,MALICIOUS_CODE,MT_CORRECTNESS,PERFORMANCE,SECURITY,STYLE|false|20
+filter_settings_neg=NOISE|
+excludefilter0=spotbugs-excludes.xml|true
+excludefilter1=target/spotbugs-excludes-global.xml|true
+run_at_full_build=true

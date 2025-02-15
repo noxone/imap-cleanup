@@ -1,5 +1,5 @@
 /**
  * Package containing an easy-to-use wrapper around the underlaying IMAP client.
  */
-@de.larssh.utils.annotations.NonNullByDefault
+@org.eclipse.jdt.annotation.NonNullByDefault
 package org.olafneumann.imap.client;

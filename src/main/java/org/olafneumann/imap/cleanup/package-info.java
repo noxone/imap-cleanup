@@ -1,3 +1,3 @@
 /** The main package of this application */
-@de.larssh.utils.annotations.NonNullByDefault
+@org.eclipse.jdt.annotation.NonNullByDefault
 package org.olafneumann.imap.cleanup;

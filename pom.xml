@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>de.lars-sh</groupId>
-		<artifactId>parent</artifactId>
-		<version>0.9.16</version>
-		<relativePath></relativePath>
-	</parent>
 
 	<groupId>org.olafneumann</groupId>
 	<artifactId>imap-cleanup</artifactId>
@@ -21,8 +16,11 @@
 
 	<!-- TODO: scm, issueManagement, ciManagement -->
 	<properties>
+		<maven.compiler.source>22</maven.compiler.source>
+		<maven.compiler.target>22</maven.compiler.target>
 		<maven.compiler.release>22</maven.compiler.release>
 
+		<parent-pom.github.organization>noxone</parent-pom.github.organization>
 		<parent-pom.create-lombok-config>false</parent-pom.create-lombok-config>
 		<parent-pom.default-sources-folder>java</parent-pom.default-sources-folder>
 		<parent-pom.create-gitignore>false</parent-pom.create-gitignore>
@@ -31,9 +29,22 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>org.eclipse.jdt.annotation</artifactId>
+			<version>2.3.100</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>3.11.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.18.1</version>
 		</dependency>
 
 

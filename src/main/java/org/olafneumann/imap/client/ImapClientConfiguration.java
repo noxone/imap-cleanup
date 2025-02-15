@@ -9,6 +9,10 @@ public class ImapClientConfiguration {
 
 	private int port = 993;
 
+	private String username = "";
+
+	private String password = "";
+
 	public boolean isImplicit() {
 		return implicit;
 	}
@@ -39,5 +43,21 @@ public class ImapClientConfiguration {
 
 	public void setPort(final int port) {
 		this.port = port;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setPassword(final String password) {
+		this.password = password;
+	}
+
+	public void setUsername(final String username) {
+		this.username = username;
 	}
 }

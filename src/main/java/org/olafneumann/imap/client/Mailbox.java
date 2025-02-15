@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
-
-@SuppressWarnings("javadoc")
 public class Mailbox {
 	private static Logger logger = LoggerFactory.getLogger(Mailbox.class);
 
@@ -18,8 +16,7 @@ public class Mailbox {
 
 	private static final Pattern LIST_LINE_REGEX = Pattern.compile(LIST_LINE_REGEX_STRING, Pattern.CASE_INSENSITIVE);
 
-	@Nullable
-	static Mailbox parseListResponseLine(final ImapClient client, final String line) {
+	static @Nullable Mailbox parseListResponseLine(final ImapClient client, final String line) {
 		final var matcher = LIST_LINE_REGEX.matcher(line);
 		if (!matcher.matches()) {
 			logger.info("Descard line: {}", line);
@@ -35,7 +32,7 @@ public class Mailbox {
 		Objects.requireNonNull(flags, "'flags' must not be null.");
 
 		logger.info("Extracted name<{}> parent<{}> flags<{}>", name, parent, flags);
-		return new Mailbox(client, name.split("/"));
+		return new Mailbox(client, name.split("/", 0));
 	}
 
 	private final ImapClient client;
@@ -56,5 +53,10 @@ public class Mailbox {
 
 	public String getFullName() {
 		return fullName;
+	}
+
+	public void select() {
+		final var lines = client.select(this);
+		System.out.println(lines);
 	}
 }

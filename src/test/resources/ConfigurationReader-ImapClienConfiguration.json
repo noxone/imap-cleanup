@@ -1,0 +1,8 @@
+{
+    "imaps": true,
+    "implicit": true,
+    "hostname":"aaa",
+    "port": 993,
+    "username": "bbb",
+    "password":"ccc"
+}

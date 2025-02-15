@@ -1,5 +1,5 @@
 /.idea/
-/.settings/
+#/.settings/
 /src/main/lombok/lombok.config
 /src/test/lombok/lombok.config
 /src/lombok.config
@@ -10,6 +10,7 @@
 /*.iml
 
 /password.txt
+secret.*
 
 
 ### macOS ###
