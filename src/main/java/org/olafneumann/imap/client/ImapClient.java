@@ -39,6 +39,10 @@ public class ImapClient implements AutoCloseable {
 	public ImapClient(final ImapClientConfiguration configuration) throws IOException {
 		imapClient = createIMAPClient(configuration);
 		imapClient.connect(configuration.getHostname(), configuration.getPort());
+		final var loggedIn = imapClient.login(configuration.getUsername(), configuration.getPassword());
+		if (!loggedIn) {
+			throw new RuntimeException("Not logged in");
+		}
 	}
 
 	/**

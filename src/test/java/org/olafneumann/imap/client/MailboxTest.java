@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class MailboxUnitTest {
+public class MailboxTest {
 	private final ImapClient imapClient = mock(ImapClient.class);
 
 	@Test
@@ -26,7 +26,7 @@ public class MailboxUnitTest {
 
 		assertThat(actualMailboxes).hasSize(28);
 		assertThat(actualLastNames).containsExactlyInAnyOrder("Archive",
-				"13 Versicherungen",
+				"3 Versicherungen",
 				"Bank",
 				"Paypal",
 				"Junk",
