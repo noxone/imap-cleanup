@@ -16,9 +16,9 @@
 
 	<!-- TODO: scm, issueManagement, ciManagement -->
 	<properties>
-		<maven.compiler.source>22</maven.compiler.source>
-		<maven.compiler.target>22</maven.compiler.target>
-		<maven.compiler.release>22</maven.compiler.release>
+		<maven.compiler.source>23</maven.compiler.source>
+		<maven.compiler.target>23</maven.compiler.target>
+		<maven.compiler.release>23</maven.compiler.release>
 
 		<parent-pom.github.organization>noxone</parent-pom.github.organization>
 		<parent-pom.create-lombok-config>false</parent-pom.create-lombok-config>
