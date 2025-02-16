@@ -1,0 +1,8 @@
+* FLAGS (\Answered \Deleted \Draft \Flagged \Seen)
+* 0 EXISTS
+* 0 RECENT
+* OK [UIDVALIDITY 1739650802]
+* OK [UIDNEXT 1]
+* OK No messages unseen
+* OK [PERMANENTFLAGS (\Answered \Deleted \Draft \Flagged \Seen \*)]
+AAAD OK [READ-WRITE] SELECT completed.

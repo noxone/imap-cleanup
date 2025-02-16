@@ -6,8 +6,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 
 import org.junit.jupiter.api.Test;
-
-import com.google.common.io.Resources;
+import org.olafneumann.test.TestResources;
 
 public class ConfigurationReaderTest {
 	@Test
@@ -15,7 +14,7 @@ public class ConfigurationReaderTest {
 		final var configReader = new ConfigurationReader();
 
 		final var actual = configReader.readConfiguration(
-				Paths.get(Resources.getResource("ConfigurationReader-ImapClienConfiguration.json").toURI()));
+				Paths.get(TestResources.getResourceUrl("ConfigurationReader-ImapClienConfiguration.json").toURI()));
 
 		assertThat(actual.getHostname()).isEqualTo("aaa");
 	}

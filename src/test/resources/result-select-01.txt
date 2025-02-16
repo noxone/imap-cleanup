@@ -1,0 +1,8 @@
+* 8 EXISTS
+* 0 RECENT
+* OK [UNSEEN 8]
+* OK [UIDVALIDITY 1]
+* OK [UIDNEXT 4983]
+* FLAGS (\Answered \Flagged \Draft \Deleted \Seen \Recent $MailFlagBit0 $MailFlagBit1 $MailFlagBit2 $Forwarded Redirected $NotJunk NotJunk)
+* OK [PERMANENTFLAGS (\Answered \Flagged \Draft \Deleted \Seen \Recent $MailFlagBit0 $MailFlagBit1 $MailFlagBit2 $Forwarded Redirected $NotJunk NotJunk $iCloudCleanup \*)]
+AAAD OK [READ-WRITE] SELECT completed (took 5 ms)

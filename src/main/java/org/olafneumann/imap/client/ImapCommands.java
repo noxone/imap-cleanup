@@ -13,7 +13,7 @@ public final class ImapCommands {
 
 	public static final ThrowingImapCommand LIST = client -> client.list("", "*");
 
-	public static ThrowingImapCommand selectMailbox(final String mailboxName) {
+	public static ThrowingImapCommand select(final String mailboxName) {
 		return client -> client.select(mailboxName);
 	}
 

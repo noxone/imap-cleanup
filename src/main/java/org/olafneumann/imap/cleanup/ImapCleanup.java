@@ -11,8 +11,6 @@ import org.apache.commons.net.imap.IMAPClient;
 import org.apache.commons.net.imap.IMAPSClient;
 import org.olafneumann.imap.client.ImapCommands.ThrowingImapCommand;
 
-import com.google.common.io.Resources;
-
 /**
  * The main class to start the application
  */
@@ -20,7 +18,8 @@ import com.google.common.io.Resources;
 public final class ImapCleanup {
 	private static Properties readSecretProperties() {
 		final var properties = new Properties(4);
-		try (var reader = Files.newBufferedReader(Paths.get(Resources.getResource("secret.properties").toURI()))) {
+		try (var reader = Files.newBufferedReader(
+				Paths.get(ImapCleanup.class.getClassLoader().getResource("secret.properties").toURI()))) {
 			properties.load(reader);
 		} catch (final IOException | URISyntaxException e) {
 			throw new RuntimeException(e);

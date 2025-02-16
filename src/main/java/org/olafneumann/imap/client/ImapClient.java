@@ -1,10 +1,6 @@
 package org.olafneumann.imap.client;
 
-import static org.olafneumann.imap.client.ImapCommands.LIST;
-import static org.olafneumann.imap.client.ImapCommands.selectMailbox;
-
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +37,7 @@ public class ImapClient implements AutoCloseable {
 		imapClient.connect(configuration.getHostname(), configuration.getPort());
 		final var loggedIn = imapClient.login(configuration.getUsername(), configuration.getPassword());
 		if (!loggedIn) {
-			throw new RuntimeException("Not logged in");
+			throw new ImapClientException("Not logged in");
 		}
 	}
 
@@ -60,10 +56,13 @@ public class ImapClient implements AutoCloseable {
 
 	private Stream<String> executeCommandAndReadResponse(final ThrowingImapCommand command) {
 		try {
-			command.apply(imapClient);
+			final var success = command.apply(imapClient);
+			if (!success) {
+				throw new ImapClientException("Command execution was not successful.");
+			}
 			return readResponse();
 		} catch (final IOException e) {
-			throw new UncheckedIOException(e);
+			throw new ImapClientException("Network error while executing IMAP command.", e);
 		}
 	}
 
@@ -76,10 +75,12 @@ public class ImapClient implements AutoCloseable {
 	}
 
 	public List<Mailbox> getMailboxes() {
-		return executeCommandAndParse(LIST, line -> Mailbox.parseListResponseLine(this, line));
+		return executeCommandAndParse(ImapCommands.LIST, Mailbox::parseListResponseLine);
 	}
 
-	List<String> select(final Mailbox mailbox) {
-		return executeCommandAndReadResponse(selectMailbox(mailbox.getFullName())).toList();
+	public boolean select(final Mailbox mailbox) {
+		final var result = executeCommandAndReadResponse(ImapCommands.select(mailbox.getFullName())).toList();
+		System.out.println(result);
+		return false;
 	}
 }
