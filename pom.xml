@@ -27,7 +27,7 @@
 		<parent-pom.create-gitignore>false</parent-pom.create-gitignore>
 		<parent-pom.create-github-workflow-yml>false</parent-pom.create-github-workflow-yml>
 
-		<jackson.version>2.18.1</jackson.version>
+		<jackson.version>2.18.2</jackson.version>
 		<log4j.version>2.24.3</log4j.version>
 		<mockito.version>5.15.2</mockito.version>
 		<junit.version>5.11.4</junit.version>
